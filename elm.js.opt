@@ -8906,6 +8906,7 @@
     var $mdgriffith$elm_ui$Element$text = function (content) {
         return $mdgriffith$elm_ui$Internal$Model$Text(content);
     };
+    var $mdgriffith$elm_ui$Element$Font$underline = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.dG);
     var $author$project$Route$Index$view_fn = function (app, shared, model) {
         return {
             gg: $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
@@ -9064,28 +9065,31 @@
                         ]))
                     ]))
                 ])))),
-                $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
-                    $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(196, 185, 151)),
-                    $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-                    $mdgriffith$elm_ui$Element$paddingXY_fn(0, 146)
-                ]), $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
+                $mdgriffith$elm_ui$Element$link_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
-                ]), _List_fromArray([
-                    $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                        ay: $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
+                ]), {
+                    ay: $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(196, 185, 151)),
+                        $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
+                        $mdgriffith$elm_ui$Element$paddingXY_fn(0, 146)
+                    ]), $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+                    ]), _List_fromArray([
+                        $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                             $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(1129))
                         ]), { kq: "Viliche", aP: "/viliche.png" }),
-                        mM: ""
-                    }),
-                    $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
-                        $author$project$Route$Index$ubuntu,
-                        $mdgriffith$elm_ui$Element$Font$size(32),
-                        $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$darkColor),
-                        $mdgriffith$elm_ui$Element$alignRight,
-                        $mdgriffith$elm_ui$Element$moveLeft(100),
-                        $mdgriffith$elm_ui$Element$moveUp(130)
-                    ]), $mdgriffith$elm_ui$Element$text("\u043E \u043D\u0430\u0448\u0438\u0445 \u043F\u0430\u043A\u0435\u0442\u0430\u0445"))
-                ]))),
+                        $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                            $author$project$Route$Index$ubuntu,
+                            $mdgriffith$elm_ui$Element$Font$size(32),
+                            $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$redColor),
+                            $mdgriffith$elm_ui$Element$alignRight,
+                            $mdgriffith$elm_ui$Element$moveLeft(100),
+                            $mdgriffith$elm_ui$Element$moveUp(130),
+                            $mdgriffith$elm_ui$Element$Font$underline
+                        ]), $mdgriffith$elm_ui$Element$text("\u043E \u043D\u0430\u0448\u0438\u0445 \u043F\u0430\u043A\u0435\u0442\u0430\u0445"))
+                    ]))),
+                    mM: "/horeca.pdf"
+                }),
                 $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(210, 197, 178)),
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
@@ -9222,7 +9226,7 @@
                                             $mdgriffith$elm_ui$Element$alignTop,
                                             $mdgriffith$elm_ui$Element$Font$size(32)
                                         ]), _List_fromArray([
-                                            $mdgriffith$elm_ui$Element$text("\u042F\u0448 \u0412\u0430\u0440\u0445\u0434\u0445\u0430\u043D \u0421\u0438\u043D\u0433\u0445")
+                                            $mdgriffith$elm_ui$Element$text("\u042F\u0448 \u0412\u0430\u0440\u0434\u0445\u0430\u043D \u0421\u0438\u043D\u0433\u0445")
                                         ])),
                                         $mdgriffith$elm_ui$Element$paragraph_fn(_List_fromArray([
                                             $mdgriffith$elm_ui$Element$alignBottom,
