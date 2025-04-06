@@ -141,6 +141,21 @@ view app shared =
                         ]
                     )
                 )
+            , el
+                [ Background.color (rgb255 210 197 178)
+                , width fill
+                , behindContent (image [ height (px 605), alignRight, moveRight 46, moveDown 74 ] { src = "/oil.png", description = "oil" })
+                ]
+                (paragraph
+                    [ ubuntu
+                    , Font.size 240
+                    , paddingXY 135 95
+                    , Font.color darkColor
+                    ]
+                    [ text "история бренда" ]
+                )
+            , el [ Background.color (rgb255 210 197 178), width fill, paddingXY 135 95, Font.size 24 ] (paragraph [ raleway, Font.color darkColor ] [ text "Мы — Horeca Productions, команда, рожденная общей мечтой. Мы верили: рестораны могут покорять сердца не только кухней, но атмосферой, стилем, онлайн-присутствием. Энтузиасты, верящие в силу красивой идеи и продвижения, мы создаём вдохновляющие стратегии, завораживающий дизайн. Наша цель — сделать ваш ресторан звездой." ])
+            , el [ width fill, Background.color (rgb255 210 197 178) ] (image [ centerX, height (px 613) ] { src = "/fork.png", description = "fork" })
             ]
     }
 
@@ -153,6 +168,11 @@ headerMainFont =
 lightColor : Color
 lightColor =
     rgb255 210 197 178
+
+
+darkColor : Color
+darkColor =
+    rgb255 53 30 30
 
 
 headerFont : List (Attribute msg)
