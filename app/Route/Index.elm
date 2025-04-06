@@ -30,6 +30,12 @@ type Msg
     = ExpandTeam
 
 
+type Package
+    = One
+    | Two
+    | Three
+
+
 type alias RouteParams =
     {}
 
