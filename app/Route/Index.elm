@@ -12,11 +12,10 @@ import Head
 import Head.Seo as Seo
 import Html
 import Html.Attributes exposing (style)
-import Html.Events exposing (onClick)
 import Pages.Url
 import PagesMsg exposing (PagesMsg)
 import Route
-import RouteBuilder exposing (App, StatefulRoute, StatelessRoute)
+import RouteBuilder exposing (App, StatefulRoute)
 import Shared
 import UrlPath
 import View exposing (View)
@@ -28,12 +27,6 @@ type alias Model =
 
 type Msg
     = ExpandTeam
-
-
-type Package
-    = One
-    | Two
-    | Three
 
 
 type alias RouteParams =
@@ -108,11 +101,11 @@ view app shared model =
                 , row [ width fill ]
                     [ el [ width (px 50) ] none
                     , row [ centerX, width fill, spaceEvenly ]
-                        [ el headerFont (text "услуги")
-                        , el headerFont (text "студия")
+                        [ link [] { url = "#services", label = el headerFont (text "услуги") }
+                        , link [] { url = "#history", label = el headerFont (text "история") }
                         , image [ height (px 83) ] { src = "/logo.svg", description = "logo" }
-                        , el headerFont (text "команда")
-                        , el headerFont (text "блог")
+                        , link [] { url = "#team", label = el headerFont (text "команда") }
+                        , link [] { url = "#blog", label = el headerFont (text "блог") }
                         ]
                     , el [ width (px 50) ] none
                     ]
@@ -140,7 +133,7 @@ view app shared model =
                         [ text "Мы\u{00A0}— команда экспертов, которые знают ресторанный бизнес изнутри. Мы\u{00A0}не\u{00A0}просто оказываем услуги, мы\u{00A0}становимся вашими партнерами, погружаясь в\u{00A0}детали вашего бизнеса и\u{00A0}разрабатывая индивидуальные стратегии для достижения конкретных результатов." ]
                     )
                 )
-            , el [ Background.color (rgb255 210 197 178), width fill ]
+            , el [ Background.color (rgb255 210 197 178), width fill, htmlAttribute (Html.Attributes.id "services") ]
                 (el [ width fill, Background.image "/text-bg.svg" ]
                     (column [ paddingXY 135 95, centerX, width fill ]
                         [ el [ ubuntu, Font.size 80, Font.color yellowColor ] (text "услуги для вашего бизнеса")
@@ -161,10 +154,17 @@ view app shared model =
                         ]
                     )
                 )
+            , el [ Background.color (rgb255 196 185 151), width fill, paddingXY 0 146 ]
+                (column [ width fill ]
+                    [ link [] { url = "", label = image [ width (px 1129) ] { src = "/viliche.png", description = "Viliche" } }
+                    , el [ ubuntu, Font.size 32, Font.color darkColor, alignRight, moveLeft 100, moveUp 130 ] (text "о наших пакетах")
+                    ]
+                )
             , el
                 [ Background.color (rgb255 210 197 178)
                 , width fill
                 , behindContent (image [ height (px 605), alignRight, moveDown 74 ] { src = "/oil.png", description = "oil" })
+                , htmlAttribute (Html.Attributes.id "history")
                 ]
                 (paragraph
                     [ ubuntu
@@ -175,7 +175,7 @@ view app shared model =
                     [ text "история бренда" ]
                 )
             , el [ Background.color (rgb255 210 197 178), width fill, paddingXY 135 95, Font.size 24 ] (paragraph [ raleway, Font.color darkColor ] [ text "Мы — Horeca Productions, команда, рожденная общей мечтой. Мы верили: рестораны могут покорять сердца не только кухней, но атмосферой, стилем, онлайн-присутствием. Энтузиасты, верящие в силу красивой идеи и продвижения, мы создаём вдохновляющие стратегии, завораживающий дизайн. Наша цель — сделать ваш ресторан звездой." ])
-            , el [ width fill, Background.image "/bg.png" ]
+            , el [ width fill, Background.image "/bg.png", htmlAttribute (Html.Attributes.id "team") ]
                 (el [ paddingXY 105 95, width fill ]
                     (column [ width fill, Background.color (rgb255 196 185 151), width fill ]
                         ([ el [ paddingXY 105 125 ] (image [ height (px 100) ] { src = "/team.png", description = "team" })
@@ -216,7 +216,47 @@ view app shared model =
                         )
                     )
                 )
-            , el [ width fill, Background.color (rgb255 210 197 178) ] (image [ centerX, height (px 613) ] { src = "/fork.png", description = "fork" })
+            , el [ htmlAttribute (Html.Attributes.id "blog"), width fill, Background.image "/bg2.png" ]
+                (el [ paddingXY 105 95, width fill, Font.color (rgb255 233 231 218) ]
+                    (column [ spacing 120, htmlAttribute (style "backdrop-filter" "blur(40px)"), paddingXY 60 60, Border.rounded 30, width fill ]
+                        [ el [ Font.size 280, ubuntu ] (text "блог")
+                        , el [ alignRight, ubuntu ]
+                            (row []
+                                [ link []
+                                    { url = "https://dzen.ru/id/67f1ed371047046a46c0e665"
+                                    , label = text "дзен"
+                                    }
+                                , text "/"
+                                , link []
+                                    { url = "https://t.me/horeca_productions"
+                                    , label = text "telegram"
+                                    }
+                                , text "/"
+                                , link []
+                                    { url = "https://habr.com/ru/users/horeca_productions/"
+                                    , label = text "хабр"
+                                    }
+                                ]
+                            )
+                        ]
+                    )
+                )
+            , el [ Background.color darkColor, paddingXY 165 76, width fill ]
+                (row [ spacing 60, spaceEvenly, width fill ]
+                    [ image [ paddingEach { left = 0, right = 60, top = 0, bottom = 0 } ] { src = "/logo.svg", description = "logo" }
+                    , row [ centerX, width fill, spaceEvenly, spacing 120 ]
+                        [ link [] { url = "#services", label = el headerFont (text "услуги") }
+                        , link [] { url = "#history", label = el headerFont (text "история") }
+                        , link [] { url = "#team", label = el headerFont (text "команда") }
+                        , link [] { url = "#blog", label = el headerFont (text "блог") }
+                        ]
+                    , row [ spacing 28 ]
+                        [ image [] { src = "/tiktok.svg", description = "TikTok" }
+                        , image [] { src = "/inst.svg", description = "Instagram" }
+                        , image [] { src = "/tg.svg", description = "Telegram" }
+                        ]
+                    ]
+                )
             ]
     }
 
