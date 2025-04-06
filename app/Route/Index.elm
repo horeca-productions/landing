@@ -154,12 +154,16 @@ view app shared model =
                         ]
                     )
                 )
-            , el [ Background.color (rgb255 196 185 151), width fill, paddingXY 0 146 ]
-                (column [ width fill ]
-                    [ link [] { url = "", label = image [ width (px 1129) ] { src = "/viliche.png", description = "Viliche" } }
-                    , el [ ubuntu, Font.size 32, Font.color darkColor, alignRight, moveLeft 100, moveUp 130 ] (text "о наших пакетах")
-                    ]
-                )
+            , link [ width fill ]
+                { url = "/horeca.pdf"
+                , label =
+                    el [ Background.color (rgb255 196 185 151), width fill, paddingXY 0 146 ]
+                        (column [ width fill ]
+                            [ image [ width (px 1129) ] { src = "/viliche.png", description = "Viliche" }
+                            , el [ ubuntu, Font.size 32, Font.color redColor, alignRight, moveLeft 100, moveUp 130, Font.underline ] (text "о наших пакетах")
+                            ]
+                        )
+                }
             , el
                 [ Background.color (rgb255 210 197 178)
                 , width fill
@@ -206,7 +210,7 @@ view app shared model =
                                             [ row [ spacing 30 ]
                                                 [ image [ height (px 240), width (px 160) ] { src = "/yasha.jpg", description = "Alim" }
                                                 , column [ width (px 260), height (px 240) ]
-                                                    [ paragraph [ alignTop, Font.size 32 ] [ text "Яш Вархдхан Сингх" ]
+                                                    [ paragraph [ alignTop, Font.size 32 ] [ text "Яш Вардхан Сингх" ]
                                                     , paragraph [ alignBottom, Font.size 18 ] [ text "Гид гастротуризма. Проведение гастрономических туров, презентация культурных и гастрономических аспектов." ]
                                                     ]
                                                 ]
