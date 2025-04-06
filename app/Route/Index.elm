@@ -220,7 +220,8 @@ view app shared model =
                 (el [ paddingXY 105 95, width fill, Font.color (rgb255 233 231 218) ]
                     (column [ spacing 120, htmlAttribute (style "backdrop-filter" "blur(40px)"), paddingXY 60 60, Border.rounded 30, width fill ]
                         [ el [ Font.size 280, ubuntu ] (text "блог")
-                        , el [ alignRight, ubuntu ]
+                        , el [ height (px 100) ] none
+                        , el [ alignRight, ubuntu, Font.size 32 ]
                             (row []
                                 [ link []
                                     { url = "https://dzen.ru/id/67f1ed371047046a46c0e665"
@@ -242,9 +243,9 @@ view app shared model =
                     )
                 )
             , el [ Background.color darkColor, paddingXY 165 76, width fill ]
-                (row [ spacing 60, spaceEvenly, width fill ]
-                    [ image [ paddingEach { left = 0, right = 60, top = 0, bottom = 0 } ] { src = "/logo.svg", description = "logo" }
-                    , row [ centerX, width fill, spaceEvenly, spacing 120 ]
+                (row [ spacing 90, spaceEvenly, width fill ]
+                    [ image [ paddingEach { left = 0, right = 90, top = 0, bottom = 0 } ] { src = "/logo.svg", description = "logo" }
+                    , row [ centerX, width fill, spacing 90, spacing 120 ]
                         [ link [] { url = "#services", label = el headerFont (text "услуги") }
                         , link [] { url = "#history", label = el headerFont (text "история") }
                         , link [] { url = "#team", label = el headerFont (text "команда") }
