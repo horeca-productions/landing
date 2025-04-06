@@ -89,7 +89,7 @@ view app shared =
                     , row [ centerX, width fill, spaceEvenly ]
                         [ el headerFont (text "услуги")
                         , el headerFont (text "студия")
-                        , image [ height (px 50) ] { src = "/public/logo.svg", description = "logo" }
+                        , image [ height (px 50) ] { src = "/logo.svg", description = "logo" }
                         , el headerFont (text "сотрудники")
                         , el headerFont (text "о нас")
                         ]
@@ -99,7 +99,7 @@ view app shared =
                     [ width fill
                     , htmlAttribute (style "overflow" "hidden")
                     , height (px 650)
-                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 230, moveRight 100, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
+                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 200, moveRight 100, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
                     ]
                     [ el ([ alignRight, moveRight 40 ] ++ headerMainFont) (text "horeca")
                     , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
