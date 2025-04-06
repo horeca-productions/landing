@@ -1,16 +1,18 @@
 module Route.Index exposing (ActionData, Data, Model, Msg, route)
 
 import BackendTask exposing (BackendTask)
+import Element exposing (..)
+import Element.Background as Background
+import Element.Font as Font
 import FatalError exposing (FatalError)
 import Head
 import Head.Seo as Seo
-import Html
 import Pages.Url
 import PagesMsg exposing (PagesMsg)
-import UrlPath
 import Route
 import RouteBuilder exposing (App, StatelessRoute)
 import Shared
+import UrlPath
 import View exposing (View)
 
 
@@ -57,16 +59,16 @@ head :
 head app =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "elm-pages"
+        , siteName = "Horeca Productions"
         , image =
             { url = [ "images", "icon-png.png" ] |> UrlPath.join |> Pages.Url.fromPath
             , alt = "elm-pages logo"
             , dimensions = Nothing
             , mimeType = Nothing
             }
-        , description = "Welcome to elm-pages!"
+        , description = "Welcome to Horeco Productions!"
         , locale = Nothing
-        , title = "elm-pages is running"
+        , title = "Horeca Productions"
         }
         |> Seo.website
 
@@ -78,11 +80,34 @@ view :
 view app shared =
     { title = "elm-pages is running"
     , body =
-        [ Html.h1 [] [ Html.text "elm-pages is up and running!" ]
-        , Html.p []
-            [ Html.text <| "The message is: " ++ app.data.message
+        column [ width fill ]
+            [ column [ width fill, Background.color (rgb255 53 30 30), spacing 88 ]
+                [ row [ width fill ]
+                    [ el [ width (px 50) ] none
+                    , row [ centerX, width fill, spaceEvenly ]
+                        [ el headerFont (text "услуги")
+                        , el headerFont (text "студия")
+                        , image [ height (px 50) ] { src = "/public/logo.svg", description = "logo" }
+                        , el headerFont (text "работы")
+                        , el headerFont (text "о нас")
+                        ]
+                    , el [ width (px 50) ] none
+                    ]
+                ]
             ]
-        , Route.Blog__Slug_ { slug = "hello" }
-            |> Route.link [] [ Html.text "My blog post" ]
-        ]
     }
+
+
+headerFont : List (Attribute msg)
+headerFont =
+    [ raleway, Font.size 24, Font.color (rgb255 170 147 32) ]
+
+
+ubuntu : Attribute msg
+ubuntu =
+    Font.family [ Font.typeface "Ubuntu" ]
+
+
+raleway : Attribute msg
+raleway =
+    Font.family [ Font.typeface "Raleway" ]
