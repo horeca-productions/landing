@@ -3,6 +3,7 @@ module Route.Index exposing (ActionData, Data, Model, Msg, route)
 import BackendTask exposing (BackendTask)
 import Element exposing (..)
 import Element.Background as Background
+import Element.Border as Border
 import Element.Font as Font
 import FatalError exposing (FatalError)
 import Head
@@ -105,6 +106,38 @@ view app shared =
                     , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
                     ]
                 ]
+            , el [ Background.image "olives.jpg", width fill, padding 20 ]
+                (el
+                    [ centerX
+                    , Border.rounded 30
+                    , Background.color (rgba 0 0 0 0.2)
+                    , padding 20
+                    , width (px 920)
+                    ]
+                    (paragraph
+                        [ Font.color (rgb 1 1 1), raleway, Font.size 24 ]
+                        [ text "Мы\u{00A0}— команда экспертов, которые знают ресторанный бизнес изнутри. Мы\u{00A0}не\u{00A0}просто оказываем услуги, мы\u{00A0}становимся вашими партнерами, погружаясь в\u{00A0}детали вашего бизнеса и\u{00A0}разрабатывая индивидуальные стратегии для достижения конкретных результатов." ]
+                    )
+                )
+            , el [ padding 50, Background.color (rgb255 210 197 178), width fill ]
+                (column [ centerX, width fill ]
+                    [ el [ ubuntu, Font.size 80, Font.color yellowColor ] (text "услуги для вашего бизнеса")
+                    , row [ width fill, spaceEvenly ]
+                        [ column [ width (px 350) ]
+                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "1.")
+                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто готов к радикальному росту и хочет видеть свой ресторан на  вершине успеха." ])
+                            ]
+                        , column [ width (px 350) ]
+                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "2.")
+                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет улучшить свои результаты и укрепить позиции на рынке." ])
+                            ]
+                        , column [ width (px 350) ]
+                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "3.")
+                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет получить профессиональную оценку и рекомендации по  улучшению своего бизнеса." ])
+                            ]
+                        ]
+                    ]
+                )
             ]
     }
 
@@ -121,7 +154,12 @@ lightColor =
 
 headerFont : List (Attribute msg)
 headerFont =
-    [ raleway, Font.size 24, Font.color (rgb255 170 147 32) ]
+    [ raleway, Font.size 24, Font.color yellowColor ]
+
+
+yellowColor : Color
+yellowColor =
+    rgb255 170 147 32
 
 
 ubuntu : Attribute msg
