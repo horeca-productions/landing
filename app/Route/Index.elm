@@ -7,6 +7,7 @@ import Element.Font as Font
 import FatalError exposing (FatalError)
 import Head
 import Head.Seo as Seo
+import Html.Attributes exposing (style)
 import Pages.Url
 import PagesMsg exposing (PagesMsg)
 import Route
@@ -82,20 +83,40 @@ view app shared =
     , body =
         column [ width fill ]
             [ column [ width fill, Background.color (rgb255 53 30 30), spacing 88 ]
-                [ row [ width fill ]
+                [ el [] none
+                , row [ width fill ]
                     [ el [ width (px 50) ] none
                     , row [ centerX, width fill, spaceEvenly ]
                         [ el headerFont (text "услуги")
                         , el headerFont (text "студия")
                         , image [ height (px 50) ] { src = "/public/logo.svg", description = "logo" }
-                        , el headerFont (text "работы")
+                        , el headerFont (text "сотрудники")
                         , el headerFont (text "о нас")
                         ]
                     , el [ width (px 50) ] none
                     ]
+                , column
+                    [ width fill
+                    , htmlAttribute (style "overflow" "hidden")
+                    , height (px 650)
+                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 230, moveRight 100, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
+                    ]
+                    [ el ([ alignRight, moveRight 40 ] ++ headerMainFont) (text "horeca")
+                    , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
+                    ]
                 ]
             ]
     }
+
+
+headerMainFont : List (Attribute msg)
+headerMainFont =
+    [ ubuntu, Font.size 280, Font.color lightColor ]
+
+
+lightColor : Color
+lightColor =
+    rgb255 210 197 178
 
 
 headerFont : List (Attribute msg)
