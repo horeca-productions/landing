@@ -1,29 +1,33 @@
 module Route.Index exposing (ActionData, Data, Model, Msg, route)
 
 import BackendTask exposing (BackendTask)
+import Effect
 import Element exposing (..)
 import Element.Background as Background
 import Element.Border as Border
+import Element.Events as Events
 import Element.Font as Font
 import FatalError exposing (FatalError)
 import Head
 import Head.Seo as Seo
+import Html
 import Html.Attributes exposing (style)
+import Html.Events exposing (onClick)
 import Pages.Url
 import PagesMsg exposing (PagesMsg)
 import Route
-import RouteBuilder exposing (App, StatelessRoute)
+import RouteBuilder exposing (App, StatefulRoute, StatelessRoute)
 import Shared
 import UrlPath
 import View exposing (View)
 
 
 type alias Model =
-    {}
+    { teamExpanded : Bool }
 
 
-type alias Msg =
-    ()
+type Msg
+    = ExpandTeam
 
 
 type alias RouteParams =
@@ -31,28 +35,37 @@ type alias RouteParams =
 
 
 type alias Data =
-    { message : String
-    }
+    {}
 
 
 type alias ActionData =
     {}
 
 
-route : StatelessRoute RouteParams Data ActionData
+route : StatefulRoute RouteParams Data ActionData Model Msg
 route =
     RouteBuilder.single
         { head = head
         , data = data
         }
-        |> RouteBuilder.buildNoState { view = view }
+        |> RouteBuilder.buildWithLocalState
+            { view = view
+            , init = \_ _ -> ( { teamExpanded = False }, Effect.None )
+            , update = \_ _ msg model -> ( update msg model, Effect.None )
+            , subscriptions = \_ _ _ _ -> Sub.none
+            }
+
+
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        ExpandTeam ->
+            { model | teamExpanded = True }
 
 
 data : BackendTask FatalError Data
 data =
     BackendTask.succeed Data
-        |> BackendTask.andMap
-            (BackendTask.succeed "Hello!")
 
 
 head :
@@ -78,9 +91,10 @@ head app =
 view :
     App Data ActionData RouteParams
     -> Shared.Model
+    -> Model
     -> View (PagesMsg Msg)
-view app shared =
-    { title = "elm-pages is running"
+view app shared model =
+    { title = "Horeca Productions"
     , body =
         column [ width fill ]
             [ column [ width fill, Background.color (rgb255 53 30 30), spacing 88 ]
@@ -144,7 +158,7 @@ view app shared =
             , el
                 [ Background.color (rgb255 210 197 178)
                 , width fill
-                , behindContent (image [ height (px 605), alignRight, moveRight 46, moveDown 74 ] { src = "/oil.png", description = "oil" })
+                , behindContent (image [ height (px 605), alignRight, moveDown 74 ] { src = "/oil.png", description = "oil" })
                 ]
                 (paragraph
                     [ ubuntu
@@ -155,6 +169,47 @@ view app shared =
                     [ text "история бренда" ]
                 )
             , el [ Background.color (rgb255 210 197 178), width fill, paddingXY 135 95, Font.size 24 ] (paragraph [ raleway, Font.color darkColor ] [ text "Мы — Horeca Productions, команда, рожденная общей мечтой. Мы верили: рестораны могут покорять сердца не только кухней, но атмосферой, стилем, онлайн-присутствием. Энтузиасты, верящие в силу красивой идеи и продвижения, мы создаём вдохновляющие стратегии, завораживающий дизайн. Наша цель — сделать ваш ресторан звездой." ])
+            , el [ width fill, Background.image "/bg.png" ]
+                (el [ paddingXY 105 95, width fill ]
+                    (column [ width fill, Background.color (rgb255 196 185 151), width fill ]
+                        ([ el [ paddingXY 105 125 ] (image [ height (px 100) ] { src = "/team.png", description = "team" })
+                         , row [ paddingEach { top = 0, left = 115, right = 115, bottom = 95 }, spaceEvenly, width fill ]
+                            [ row [ spacing 30 ]
+                                [ image [ height (px 240), width (px 160) ] { src = "/alim.jpg", description = "Alim" }
+                                , column [ width (px 260), height (px 240) ]
+                                    [ paragraph [ alignTop, Font.size 32 ] [ text "Алим Лаипанов" ]
+                                    , paragraph [ alignBottom, Font.size 18 ] [ text "Копирайтер, администратор телеграм-канала. Создание текстов для рекламы, ведение и продвижение контента в Телеграм-канале." ]
+                                    ]
+                                ]
+                            , row [ spacing 30 ]
+                                [ image [ height (px 240), width (px 160) ] { src = "/ilia.jpg", description = "Alim" }
+                                , column [ width (px 260), height (px 240) ]
+                                    [ paragraph [ alignTop, Font.size 32 ] [ text "Илья Костюченко" ]
+                                    , paragraph [ alignBottom, Font.size 18 ] [ text "Ведущий технический специалист. Разработка и поддержка технической инфраструктуры компании." ]
+                                    ]
+                                ]
+                            ]
+                         ]
+                            ++ (case model.teamExpanded of
+                                    False ->
+                                        [ el [ Events.onClick <| PagesMsg.fromMsg ExpandTeam, pointer, Font.color redColor, ubuntu, paddingEach { top = 0, left = 115, right = 115, bottom = 95 } ] (text "подробнее")
+                                        ]
+
+                                    True ->
+                                        [ row [ paddingEach { top = 0, left = 115, right = 115, bottom = 95 }, spaceEvenly, width fill ]
+                                            [ row [ spacing 30 ]
+                                                [ image [ height (px 240), width (px 160) ] { src = "/yasha.jpg", description = "Alim" }
+                                                , column [ width (px 260), height (px 240) ]
+                                                    [ paragraph [ alignTop, Font.size 32 ] [ text "Яш Вархдхан Сингх" ]
+                                                    , paragraph [ alignBottom, Font.size 18 ] [ text "Гид гастротуризма. Проведение гастрономических туров, презентация культурных и гастрономических аспектов." ]
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                               )
+                        )
+                    )
+                )
             , el [ width fill, Background.color (rgb255 210 197 178) ] (image [ centerX, height (px 613) ] { src = "/fork.png", description = "fork" })
             ]
     }
@@ -168,6 +223,11 @@ headerMainFont =
 lightColor : Color
 lightColor =
     rgb255 210 197 178
+
+
+redColor : Color
+redColor =
+    rgb255 120 2 4
 
 
 darkColor : Color
