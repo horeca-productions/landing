@@ -90,9 +90,9 @@ view app shared =
                     , row [ centerX, width fill, spaceEvenly ]
                         [ el headerFont (text "услуги")
                         , el headerFont (text "студия")
-                        , image [ height (px 50) ] { src = "/logo.svg", description = "logo" }
-                        , el headerFont (text "сотрудники")
-                        , el headerFont (text "о нас")
+                        , image [ height (px 83) ] { src = "/logo.svg", description = "logo" }
+                        , el headerFont (text "команда")
+                        , el headerFont (text "блог")
                         ]
                     , el [ width (px 50) ] none
                     ]
@@ -106,37 +106,40 @@ view app shared =
                     , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
                     ]
                 ]
-            , el [ Background.image "olives.jpg", width fill, padding 20 ]
+            , el [ Background.image "olives.png", width fill, padding 20 ]
                 (el
                     [ centerX
                     , Border.rounded 30
                     , Background.color (rgba 0 0 0 0.2)
                     , padding 20
                     , width (px 920)
+                    , htmlAttribute (style "backdrop-filter" "blur(40px)")
                     ]
                     (paragraph
                         [ Font.color (rgb 1 1 1), raleway, Font.size 24 ]
                         [ text "Мы\u{00A0}— команда экспертов, которые знают ресторанный бизнес изнутри. Мы\u{00A0}не\u{00A0}просто оказываем услуги, мы\u{00A0}становимся вашими партнерами, погружаясь в\u{00A0}детали вашего бизнеса и\u{00A0}разрабатывая индивидуальные стратегии для достижения конкретных результатов." ]
                     )
                 )
-            , el [ padding 50, Background.color (rgb255 210 197 178), width fill ]
-                (column [ centerX, width fill ]
-                    [ el [ ubuntu, Font.size 80, Font.color yellowColor ] (text "услуги для вашего бизнеса")
-                    , row [ width fill, spaceEvenly ]
-                        [ column [ width (px 350) ]
-                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "1.")
-                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто готов к радикальному росту и хочет видеть свой ресторан на  вершине успеха." ])
-                            ]
-                        , column [ width (px 350) ]
-                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "2.")
-                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет улучшить свои результаты и укрепить позиции на рынке." ])
-                            ]
-                        , column [ width (px 350) ]
-                            [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "3.")
-                            , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет получить профессиональную оценку и рекомендации по  улучшению своего бизнеса." ])
+            , el [ Background.color (rgb255 210 197 178), width fill ]
+                (el [ width fill, Background.image "/text-bg.svg" ]
+                    (column [ paddingXY 135 95, centerX, width fill ]
+                        [ el [ ubuntu, Font.size 80, Font.color yellowColor ] (text "услуги для вашего бизнеса")
+                        , row [ width fill, spaceEvenly ]
+                            [ column [ width (px 350) ]
+                                [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "1.")
+                                , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто готов к радикальному росту и хочет видеть свой ресторан на  вершине успеха." ])
+                                ]
+                            , column [ width (px 350) ]
+                                [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "2.")
+                                , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет улучшить свои результаты и укрепить позиции на рынке." ])
+                                ]
+                            , column [ width (px 350) ]
+                                [ el [ ubuntu, Font.color yellowColor, Font.size 320 ] (text "3.")
+                                , el [ raleway, Font.color yellowColor, Font.size 24 ] (paragraph [] [ text "Для тех, кто хочет получить профессиональную оценку и рекомендации по  улучшению своего бизнеса." ])
+                                ]
                             ]
                         ]
-                    ]
+                    )
                 )
             ]
     }
