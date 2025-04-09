@@ -10,7 +10,6 @@ import Element.Font as Font
 import FatalError exposing (FatalError)
 import Head
 import Head.Seo as Seo
-import Html
 import Html.Attributes exposing (style)
 import Pages.Url
 import PagesMsg exposing (PagesMsg)
