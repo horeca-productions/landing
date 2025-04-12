@@ -79,7 +79,7 @@ head app =
             , dimensions = Nothing
             , mimeType = Nothing
             }
-        , description = "Welcome to Horeco Productions!"
+        , description = "Welcome to Horeca Productions!"
         , locale = Nothing
         , title = "Horeca Productions"
         }
@@ -97,34 +97,29 @@ view app shared model =
         column [ width fill ]
             [ column [ width fill, Background.color (rgb255 53 30 30), spacing 88 ]
                 [ el [] none
-                , row [ width fill ]
-                    [ el [ width (px 50) ] none
-                    , row [ centerX, width fill, spaceEvenly ]
-                        [ link [] { url = "#services", label = el headerFont (text "услуги") }
-                        , link [] { url = "#history", label = el headerFont (text "история") }
-                        , image [ height (px 83) ] { src = "/logo.svg", description = "logo" }
-                        , link [] { url = "#team", label = el headerFont (text "команда") }
-                        , link [] { url = "#blog", label = el headerFont (text "блог") }
-                        ]
-                    , el [ width (px 50) ] none
+                , row [ centerX, width fill, spaceEvenly, paddingXY 165 0 ]
+                    [ link [] { url = "#services", label = el headerFont (text "услуги") }
+                    , link [] { url = "#history", label = el headerFont (text "история") }
+                    , image [ height (px 83) ] { src = "/logo.svg", description = "logo" }
+                    , link [] { url = "#team", label = el headerFont (text "команда") }
+                    , link [] { url = "#blog", label = el headerFont (text "блог") }
                     ]
                 , column
                     [ width fill
                     , htmlAttribute (style "overflow" "hidden")
                     , height (px 650)
-                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 200, moveRight 100, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
+                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 200, moveRight 165, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
                     ]
                     [ el ([ alignRight, moveRight 40 ] ++ headerMainFont) (text "horeca")
                     , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
                     ]
                 ]
-            , el [ Background.image "olives.png", width fill, padding 20 ]
+            , el [ Background.image "olives.png", width fill, paddingXY 165 20 ]
                 (el
                     [ centerX
                     , Border.rounded 30
                     , Background.color (rgba 0 0 0 0.2)
                     , padding 20
-                    , width (px 920)
                     , htmlAttribute (style "backdrop-filter" "blur(40px)")
                     ]
                     (paragraph
@@ -180,7 +175,7 @@ view app shared model =
             , el [ Background.color (rgb255 210 197 178), width fill, paddingXY 135 95, Font.size 24 ] (paragraph [ raleway, Font.color darkColor ] [ text "Мы — Horeca Productions, команда, рожденная общей мечтой. Мы верили: рестораны могут покорять сердца не только кухней, но атмосферой, стилем, онлайн-присутствием. Энтузиасты, верящие в силу красивой идеи и продвижения, мы создаём вдохновляющие стратегии, завораживающий дизайн. Наша цель — сделать ваш ресторан звездой." ])
             , el [ width fill, Background.image "/bg.png", htmlAttribute (Html.Attributes.id "team") ]
                 (el [ paddingXY 105 95, width fill ]
-                    (column [ width fill, Background.color (rgb255 196 185 151), width fill ]
+                    (column [ width fill, Background.color (rgb255 196 185 151), width fill, Border.rounded 30 ]
                         ([ el [ paddingXY 105 125 ] (image [ height (px 100) ] { src = "/team.png", description = "team" })
                          , row [ paddingEach { top = 0, left = 115, right = 115, bottom = 95 }, spaceEvenly, width fill ]
                             [ row [ spacing 30 ]
@@ -201,7 +196,16 @@ view app shared model =
                          ]
                             ++ (case model.teamExpanded of
                                     False ->
-                                        [ el [ Events.onClick <| PagesMsg.fromMsg ExpandTeam, pointer, Font.color redColor, ubuntu, paddingEach { top = 0, left = 115, right = 115, bottom = 95 } ] (text "подробнее")
+                                        [ el
+                                            [ Events.onClick <| PagesMsg.fromMsg ExpandTeam
+                                            , pointer
+                                            , Font.color redColor
+                                            , ubuntu
+                                            , paddingEach { top = 0, left = 115, right = 115, bottom = 95 }
+                                            , Font.size 32
+                                            , Font.underline
+                                            ]
+                                            (text "подробнее")
                                         ]
 
                                     True ->
