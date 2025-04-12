@@ -97,7 +97,7 @@ view app shared model =
         column [ width fill ]
             [ column [ width fill, Background.color (rgb255 53 30 30), spacing 88 ]
                 [ el [] none
-                , row [ centerX, width fill, spaceEvenly, paddingXY 165 0 ]
+                , row [ centerX, width fill, spaceEvenly, paddingXY 135 0 ]
                     [ link [] { url = "#services", label = el headerFont (text "услуги") }
                     , link [] { url = "#history", label = el headerFont (text "история") }
                     , image [ height (px 83) ] { src = "/logo.svg", description = "logo" }
@@ -108,13 +108,13 @@ view app shared model =
                     [ width fill
                     , htmlAttribute (style "overflow" "hidden")
                     , height (px 650)
-                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 200, moveRight 165, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
+                    , inFront (paragraph [ raleway, Font.color lightColor, moveDown 200, moveRight 135, width (px 370) ] [ text "Где подача — всё: дизайн, маркетинг, стратегия." ])
                     ]
                     [ el ([ alignRight, moveRight 40 ] ++ headerMainFont) (text "horeca")
                     , el ([ moveLeft 26 ] ++ headerMainFont) (text "productions")
                     ]
                 ]
-            , el [ Background.image "olives.png", width fill, paddingXY 165 20 ]
+            , el [ Background.image "olives.png", width fill, paddingXY 135 20 ]
                 (el
                     [ centerX
                     , Border.rounded 30
@@ -174,7 +174,7 @@ view app shared model =
                 )
             , el [ Background.color (rgb255 210 197 178), width fill, paddingXY 135 95, Font.size 24 ] (paragraph [ raleway, Font.color darkColor ] [ text "Мы — Horeca Productions, команда, рожденная общей мечтой. Мы верили: рестораны могут покорять сердца не только кухней, но атмосферой, стилем, онлайн-присутствием. Энтузиасты, верящие в силу красивой идеи и продвижения, мы создаём вдохновляющие стратегии, завораживающий дизайн. Наша цель — сделать ваш ресторан звездой." ])
             , el [ width fill, Background.image "/bg.png", htmlAttribute (Html.Attributes.id "team") ]
-                (el [ paddingXY 105 95, width fill ]
+                (el [ paddingXY 135 95, width fill ]
                     (column [ width fill, Background.color (rgb255 196 185 151), width fill, Border.rounded 30 ]
                         ([ el [ paddingXY 105 125 ] (image [ height (px 100) ] { src = "/team.png", description = "team" })
                          , row [ paddingEach { top = 0, left = 115, right = 115, bottom = 95 }, spaceEvenly, width fill ]
@@ -224,7 +224,7 @@ view app shared model =
                     )
                 )
             , el [ htmlAttribute (Html.Attributes.id "blog"), width fill, Background.image "/bg2.png" ]
-                (el [ paddingXY 105 95, width fill, Font.color (rgb255 233 231 218) ]
+                (el [ paddingXY 135 95, width fill, Font.color (rgb255 233 231 218) ]
                     (column [ spacing 120, htmlAttribute (style "backdrop-filter" "blur(40px)"), paddingXY 60 60, Border.rounded 30, width fill ]
                         [ el [ Font.size 280, ubuntu ] (text "блог")
                         , el [ height (px 100) ] none
@@ -249,7 +249,7 @@ view app shared model =
                         ]
                     )
                 )
-            , el [ Background.color darkColor, paddingXY 165 76, width fill ]
+            , el [ Background.color darkColor, paddingXY 135 76, width fill ]
                 (row [ spacing 90, spaceEvenly, width fill ]
                     [ image [ paddingEach { left = 0, right = 90, top = 0, bottom = 0 } ] { src = "/logo.svg", description = "logo" }
                     , row [ centerX, width fill, spacing 90, spacing 120 ]
