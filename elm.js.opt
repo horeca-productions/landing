@@ -4691,11 +4691,11 @@
         var expecting = _v0.b;
         var progress = !$elm$core$String$isEmpty(str);
         return function (s) {
-            var _v1 = _Parser_isSubString_fn(str, s.fa, s.l$, s.eH, s.aP);
+            var _v1 = _Parser_isSubString_fn(str, s.fa, s.l$, s.eH, s.a8);
             var newOffset = _v1.a;
             var newRow = _v1.b;
             var newCol = _v1.c;
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eH: newCol, i: s.i, d$: s.d$, fa: newOffset, l$: newRow, aP: s.aP });
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : $elm$parser$Parser$Advanced$Good_fn(progress, 0, { eH: newCol, i: s.i, d$: s.d$, fa: newOffset, l$: newRow, a8: s.a8 });
         };
     };
     var $elm$parser$Parser$token = function (str) {
@@ -4707,8 +4707,8 @@
     var $elm$parser$Parser$Advanced$isSubChar = _Parser_isSubChar;
     var $elm$parser$Parser$Advanced$chompIf_fn = function (isGood, expecting) {
         return function (s) {
-            var newOffset = _Parser_isSubChar_fn(isGood, s.fa, s.aP);
-            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eH: 1, i: s.i, d$: s.d$, fa: s.fa + 1, l$: s.l$ + 1, aP: s.aP }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eH: s.eH + 1, i: s.i, d$: s.d$, fa: newOffset, l$: s.l$, aP: s.aP }));
+            var newOffset = _Parser_isSubChar_fn(isGood, s.fa, s.a8);
+            return newOffset === -1 ? $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, expecting)) : (newOffset === -2 ? $elm$parser$Parser$Advanced$Good_fn(true, 0, { eH: 1, i: s.i, d$: s.d$, fa: s.fa + 1, l$: s.l$ + 1, a8: s.a8 }) : $elm$parser$Parser$Advanced$Good_fn(true, 0, { eH: s.eH + 1, i: s.i, d$: s.d$, fa: newOffset, l$: s.l$, a8: s.a8 }));
         };
     }, $elm$parser$Parser$Advanced$chompIf = F2($elm$parser$Parser$Advanced$chompIf_fn);
     var $elm$parser$Parser$chompIf = function (isGood) {
@@ -4719,9 +4719,9 @@
     }, $justinmimbs$date$Pattern$Field = F2($justinmimbs$date$Pattern$Field_fn);
     var $elm$parser$Parser$Advanced$chompWhileHelp_fn = function (isGood, offset, row, col, s0) {
         chompWhileHelp: while (true) {
-            var newOffset = _Parser_isSubChar_fn(isGood, offset, s0.aP);
+            var newOffset = _Parser_isSubChar_fn(isGood, offset, s0.a8);
             if (newOffset === -1) {
-                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.fa, offset) < 0, 0, { eH: col, i: s0.i, d$: s0.d$, fa: offset, l$: row, aP: s0.aP });
+                return $elm$parser$Parser$Advanced$Good_fn(_Utils_cmp(s0.fa, offset) < 0, 0, { eH: col, i: s0.i, d$: s0.d$, fa: offset, l$: row, a8: s0.a8 });
             }
             else {
                 if (newOffset === -2) {
@@ -4794,7 +4794,7 @@
                 var p = _v1.a;
                 var a = _v1.b;
                 var s1 = _v1.c;
-                return $elm$parser$Parser$Advanced$Good_fn(p, A2(func, _String_slice_fn(s0.fa, s1.fa, s0.aP), a), s1);
+                return $elm$parser$Parser$Advanced$Good_fn(p, A2(func, _String_slice_fn(s0.fa, s1.fa, s0.a8), a), s1);
             }
         };
     }, $elm$parser$Parser$Advanced$mapChompedString_fn_unwrapped = function (func, _v0) {
@@ -4810,7 +4810,7 @@
                 var p = _v1.a;
                 var a = _v1.b;
                 var s1 = _v1.c;
-                return $elm$parser$Parser$Advanced$Good_fn(p, func(_String_slice_fn(s0.fa, s1.fa, s0.aP), a), s1);
+                return $elm$parser$Parser$Advanced$Good_fn(p, func(_String_slice_fn(s0.fa, s1.fa, s0.a8), a), s1);
             }
         };
     }, $elm$parser$Parser$Advanced$mapChompedString = F2($elm$parser$Parser$Advanced$mapChompedString_fn);
@@ -4916,7 +4916,7 @@
     var $elm$parser$Parser$ExpectingEnd = { $: 10 };
     var $elm$parser$Parser$Advanced$end = function (x) {
         return function (s) {
-            return _Utils_eq($elm$core$String$length(s.aP), s.fa) ? $elm$parser$Parser$Advanced$Good_fn(false, 0, s) : $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, x));
+            return _Utils_eq($elm$core$String$length(s.a8), s.fa) ? $elm$parser$Parser$Advanced$Good_fn(false, 0, s) : $elm$parser$Parser$Advanced$Bad_fn(false, $elm$parser$Parser$Advanced$fromState_fn(s, x));
         };
     };
     var $elm$parser$Parser$end = $elm$parser$Parser$Advanced$end($elm$parser$Parser$ExpectingEnd);
@@ -4975,7 +4975,7 @@
     }, $elm$parser$Parser$Advanced$bagToList = F2($elm$parser$Parser$Advanced$bagToList_fn);
     var $elm$parser$Parser$Advanced$run_fn = function (_v0, src) {
         var parse = _v0;
-        var _v1 = parse({ eH: 1, i: _List_Nil, d$: 1, fa: 0, l$: 1, aP: src });
+        var _v1 = parse({ eH: 1, i: _List_Nil, d$: 1, fa: 0, l$: 1, a8: src });
         if (!_v1.$) {
             var value = _v1.b;
             return $elm$core$Result$Ok(value);
@@ -5904,7 +5904,7 @@
             $elm$core$Maybe$Just($elm$core$String$fromFloat(shadow.fa.b) + "px"),
             $elm$core$Maybe$Just($elm$core$String$fromFloat(shadow.$8) + "px"),
             $elm$core$Maybe$Just($elm$core$String$fromFloat(shadow.mf) + "px"),
-            $elm$core$Maybe$Just($mdgriffith$elm_ui$Internal$Model$formatColor(shadow.av))
+            $elm$core$Maybe$Just($mdgriffith$elm_ui$Internal$Model$formatColor(shadow.aw))
         ])));
     };
     var $elm$core$Tuple$mapFirst_fn = function (func, _v0) {
@@ -5929,7 +5929,7 @@
                 $elm$core$Maybe$map_fn(function (shadow) {
                     return $mdgriffith$elm_ui$Internal$Model$Property_fn("box-shadow", $mdgriffith$elm_ui$Internal$Model$formatBoxShadow({
                         $8: shadow.$8,
-                        av: shadow.av,
+                        aw: shadow.aw,
                         iO: false,
                         fa: $elm$core$Tuple$mapSecond_fn($elm$core$Basics$toFloat, $elm$core$Tuple$mapFirst_fn($elm$core$Basics$toFloat, shadow.fa)),
                         mf: shadow.mf
@@ -5947,7 +5947,7 @@
                 $elm$core$Maybe$map_fn(function (shadow) {
                     return $mdgriffith$elm_ui$Internal$Model$Property_fn("box-shadow", $mdgriffith$elm_ui$Internal$Model$formatBoxShadow({
                         $8: shadow.$8,
-                        av: shadow.av,
+                        aw: shadow.aw,
                         iO: false,
                         fa: $elm$core$Tuple$mapSecond_fn($elm$core$Basics$toFloat, $elm$core$Tuple$mapFirst_fn($elm$core$Basics$toFloat, shadow.fa)),
                         mf: shadow.mf
@@ -6978,7 +6978,7 @@
     };
     var $mdgriffith$elm_ui$Internal$Style$Intermediate = $elm$core$Basics$identity;
     var $mdgriffith$elm_ui$Internal$Style$emptyIntermediate_fn = function (selector, closing) {
-        return { cQ: closing, N: _List_Nil, a7: _List_Nil, aF: selector };
+        return { cQ: closing, N: _List_Nil, a6: _List_Nil, aF: selector };
     }, $mdgriffith$elm_ui$Internal$Style$emptyIntermediate = F2($mdgriffith$elm_ui$Internal$Style$emptyIntermediate_fn);
     var $mdgriffith$elm_ui$Internal$Style$renderRules_fn = function (_v0, rulesToRender) {
         var parent = _v0;
@@ -6988,7 +6988,7 @@
                     var name = rule.a;
                     var val = rule.b;
                     return _Utils_update(rendered, {
-                        a7: _List_Cons(_Utils_Tuple2(name, val), rendered.a7)
+                        a6: _List_Cons(_Utils_Tuple2(name, val), rendered.a6)
                     });
                 case 3:
                     var _v2 = rule.a;
@@ -6996,7 +6996,7 @@
                     var value = _v2.b;
                     var props = rule.b;
                     return _Utils_update(rendered, {
-                        N: _List_Cons({ cQ: "\n}", N: _List_Nil, a7: props, aF: "@supports (" + (prop + (":" + (value + (") {" + parent.aF)))) }, rendered.N)
+                        N: _List_Cons({ cQ: "\n}", N: _List_Nil, a6: props, aF: "@supports (" + (prop + (":" + (value + (") {" + parent.aF)))) }, rendered.N)
                     });
                 case 5:
                     var selector = rule.a;
@@ -7040,12 +7040,12 @@
             }, values));
         };
         var renderClass = function (rule) {
-            var _v2 = rule.a7;
+            var _v2 = rule.a6;
             if (!_v2.b) {
                 return "";
             }
             else {
-                return rule.aF + ("{" + (renderValues(rule.a7) + (rule.cQ + "}")));
+                return rule.aF + ("{" + (renderValues(rule.a6) + (rule.cQ + "}")));
             }
         };
         var renderIntermediate = function (_v0) {
@@ -8667,7 +8667,7 @@
     var $mdgriffith$elm_ui$Element$rgb255_fn = function (red, green, blue) {
         return $mdgriffith$elm_ui$Internal$Model$Rgba_fn(red / 255, green / 255, blue / 255, 1);
     }, $mdgriffith$elm_ui$Element$rgb255 = F3($mdgriffith$elm_ui$Element$rgb255_fn);
-    var $author$project$Route$Index$darkColor = $mdgriffith$elm_ui$Element$rgb255_fn(53, 30, 30);
+    var $author$project$Route$Index$darkColor = $mdgriffith$elm_ui$Element$rgb255_fn(36, 21, 21);
     var $mdgriffith$elm_ui$Element$el_fn = function (attrs, child) {
         return $mdgriffith$elm_ui$Internal$Model$element_fn($mdgriffith$elm_ui$Internal$Model$asEl, $mdgriffith$elm_ui$Internal$Model$div, _List_Cons($mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink), _List_Cons($mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink), attrs)), $mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_fromArray([child])));
     }, $mdgriffith$elm_ui$Element$el = F2($mdgriffith$elm_ui$Element$el_fn);
@@ -8749,7 +8749,7 @@
     };
     var $mdgriffith$elm_ui$Element$image_fn = function (attrs, _v0) {
         var description = _v0.kq;
-        var src = _v0.aP;
+        var src = _v0.a8;
         var imageAttributes = $elm$core$List$filter_fn(function (a) {
             switch (a.$) {
                 case 7:
@@ -8775,15 +8775,21 @@
     var $mdgriffith$elm_ui$Element$inFront = function (element) {
         return $mdgriffith$elm_ui$Element$createNearby_fn(4, element);
     };
+    var $mdgriffith$elm_ui$Internal$Model$Class_fn = function (a, b) {
+        return { $: 3, a: a, b: b };
+    }, $mdgriffith$elm_ui$Internal$Model$Class = F2($mdgriffith$elm_ui$Internal$Model$Class_fn);
+    var $mdgriffith$elm_ui$Internal$Flag$fontWeight = $mdgriffith$elm_ui$Internal$Flag$flag(13);
+    var $mdgriffith$elm_ui$Element$Font$light = $mdgriffith$elm_ui$Internal$Model$Class_fn($mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.my);
     var $elm$html$Html$Attributes$href = function (url) {
         return $elm$html$Html$Attributes$stringProperty_fn("href", _VirtualDom_noJavaScriptUri(url));
     };
     var $elm$html$Html$Attributes$rel_a0 = "rel", $elm$html$Html$Attributes$rel = _VirtualDom_attribute($elm$html$Html$Attributes$rel_a0);
     var $mdgriffith$elm_ui$Element$link_fn = function (attrs, _v0) {
-        var label = _v0.ay;
+        var label = _v0.am;
         var url = _v0.mM;
         return $mdgriffith$elm_ui$Internal$Model$element_fn($mdgriffith$elm_ui$Internal$Model$asEl, $mdgriffith$elm_ui$Internal$Model$NodeName("a"), _List_Cons($mdgriffith$elm_ui$Internal$Model$Attr($elm$html$Html$Attributes$href(url)), _List_Cons($mdgriffith$elm_ui$Internal$Model$Attr(_VirtualDom_attribute_fn($elm$html$Html$Attributes$rel_a0, "noopener noreferrer")), _List_Cons($mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink), _List_Cons($mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink), _List_Cons($mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.eM + (" " + ($mdgriffith$elm_ui$Internal$Style$classes.bJ + (" " + $mdgriffith$elm_ui$Internal$Style$classes.g4)))), attrs))))), $mdgriffith$elm_ui$Internal$Model$Unkeyed(_List_fromArray([label])));
     }, $mdgriffith$elm_ui$Element$link = F2($mdgriffith$elm_ui$Element$link_fn);
+    var $mdgriffith$elm_ui$Element$Font$medium = $mdgriffith$elm_ui$Internal$Model$Class_fn($mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.mz);
     var $mdgriffith$elm_ui$Internal$Model$MoveY = function (a) {
         return { $: 1, a: a };
     };
@@ -8827,10 +8833,6 @@
         return { $: 7, a: a, b: b, c: c, d: d, e: e };
     }, $mdgriffith$elm_ui$Internal$Model$PaddingStyle = F5($mdgriffith$elm_ui$Internal$Model$PaddingStyle_fn);
     var $mdgriffith$elm_ui$Internal$Flag$padding = $mdgriffith$elm_ui$Internal$Flag$flag(2);
-    var $mdgriffith$elm_ui$Element$padding = function (x) {
-        var f = x;
-        return $mdgriffith$elm_ui$Internal$Model$StyleClass_fn($mdgriffith$elm_ui$Internal$Flag$padding, $mdgriffith$elm_ui$Internal$Model$PaddingStyle_fn("p-" + $elm$core$String$fromInt(x), f, f, f, f));
-    };
     var $mdgriffith$elm_ui$Internal$Model$paddingName_fn = function (top, right, bottom, left) {
         return "pad-" + ($elm$core$String$fromInt(top) + ("-" + ($elm$core$String$fromInt(right) + ("-" + ($elm$core$String$fromInt(bottom) + ("-" + $elm$core$String$fromInt(left)))))));
     }, $mdgriffith$elm_ui$Internal$Model$paddingName = F4($mdgriffith$elm_ui$Internal$Model$paddingName_fn);
@@ -8875,9 +8877,6 @@
     var $mdgriffith$elm_ui$Element$paragraph_fn = function (attrs, children) {
         return $mdgriffith$elm_ui$Internal$Model$element_fn($mdgriffith$elm_ui$Internal$Model$asParagraph, $mdgriffith$elm_ui$Internal$Model$div, _List_Cons($mdgriffith$elm_ui$Internal$Model$Describe($mdgriffith$elm_ui$Internal$Model$Paragraph), _List_Cons($mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill), _List_Cons($mdgriffith$elm_ui$Element$spacing(5), attrs))), $mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
     }, $mdgriffith$elm_ui$Element$paragraph = F2($mdgriffith$elm_ui$Element$paragraph_fn);
-    var $mdgriffith$elm_ui$Internal$Model$Class_fn = function (a, b) {
-        return { $: 3, a: a, b: b };
-    }, $mdgriffith$elm_ui$Internal$Model$Class = F2($mdgriffith$elm_ui$Internal$Model$Class_fn);
     var $mdgriffith$elm_ui$Internal$Flag$cursor = $mdgriffith$elm_ui$Internal$Flag$flag(21);
     var $mdgriffith$elm_ui$Element$pointer = $mdgriffith$elm_ui$Internal$Model$Class_fn($mdgriffith$elm_ui$Internal$Flag$cursor, $mdgriffith$elm_ui$Internal$Style$classes.km);
     var $mdgriffith$elm_ui$Internal$Model$Px = function (a) {
@@ -8885,9 +8884,6 @@
     };
     var $mdgriffith$elm_ui$Element$px = $mdgriffith$elm_ui$Internal$Model$Px;
     var $author$project$Route$Index$redColor = $mdgriffith$elm_ui$Element$rgb255_fn(120, 2, 4);
-    var $mdgriffith$elm_ui$Element$rgb_fn = function (r, g, b) {
-        return $mdgriffith$elm_ui$Internal$Model$Rgba_fn(r, g, b, 1);
-    }, $mdgriffith$elm_ui$Element$rgb = F3($mdgriffith$elm_ui$Element$rgb_fn);
     var $mdgriffith$elm_ui$Element$rgba = $mdgriffith$elm_ui$Internal$Model$Rgba;
     var $mdgriffith$elm_ui$Internal$Flag$borderRound = $mdgriffith$elm_ui$Internal$Flag$flag(17);
     var $mdgriffith$elm_ui$Element$Border$rounded = function (radius) {
@@ -8898,6 +8894,7 @@
     var $mdgriffith$elm_ui$Element$row_fn = function (attrs, children) {
         return $mdgriffith$elm_ui$Internal$Model$element_fn($mdgriffith$elm_ui$Internal$Model$asRow, $mdgriffith$elm_ui$Internal$Model$div, _List_Cons($mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.dT + (" " + $mdgriffith$elm_ui$Internal$Style$classes.bJ)), _List_Cons($mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$shrink), _List_Cons($mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$shrink), attrs))), $mdgriffith$elm_ui$Internal$Model$Unkeyed(children));
     }, $mdgriffith$elm_ui$Element$row = F2($mdgriffith$elm_ui$Element$row_fn);
+    var $mdgriffith$elm_ui$Element$Font$semiBold = $mdgriffith$elm_ui$Internal$Model$Class_fn($mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.mC);
     var $mdgriffith$elm_ui$Element$spaceEvenly = $mdgriffith$elm_ui$Internal$Model$Class_fn($mdgriffith$elm_ui$Internal$Flag$spacing, $mdgriffith$elm_ui$Internal$Style$classes.mh);
     var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
     var $mdgriffith$elm_ui$Internal$Model$Text = function (a) {
@@ -8925,22 +8922,22 @@
                         $mdgriffith$elm_ui$Element$paddingXY_fn(135, 0)
                     ]), _List_fromArray([
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0443\u0441\u043B\u0443\u0433\u0438")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0443\u0441\u043B\u0443\u0433\u0438")),
                             mM: "#services"
                         }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0438\u0441\u0442\u043E\u0440\u0438\u044F")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0438\u0441\u0442\u043E\u0440\u0438\u044F")),
                             mM: "#history"
                         }),
                         $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                             $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(83))
-                        ]), { kq: "logo", aP: "/logo.svg" }),
+                        ]), { kq: "logo", a8: "/logo.svg" }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u043A\u043E\u043C\u0430\u043D\u0434\u0430")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u043A\u043E\u043C\u0430\u043D\u0434\u0430")),
                             mM: "#team"
                         }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0431\u043B\u043E\u0433")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0431\u043B\u043E\u0433")),
                             mM: "#blog"
                         })
                     ])),
@@ -8970,15 +8967,15 @@
                 $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$Background$image("olives.png"),
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-                    $mdgriffith$elm_ui$Element$paddingXY_fn(135, 20)
+                    $mdgriffith$elm_ui$Element$paddingXY_fn(135, 35)
                 ]), $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$centerX,
                     $mdgriffith$elm_ui$Element$Border$rounded(30),
                     $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Internal$Model$Rgba_fn(0, 0, 0, 0.2)),
-                    $mdgriffith$elm_ui$Element$padding(20),
+                    $mdgriffith$elm_ui$Element$paddingXY_fn(95, 35),
                     $mdgriffith$elm_ui$Element$htmlAttribute(_VirtualDom_style_fn("backdrop-filter", "blur(40px)"))
                 ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_fromArray([
-                    $mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$rgb_fn(1, 1, 1)),
+                    $mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$rgb255_fn(210, 197, 178)),
                     $author$project$Route$Index$raleway,
                     $mdgriffith$elm_ui$Element$Font$size(24)
                 ]), _List_fromArray([
@@ -8999,66 +8996,77 @@
                     $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                         $author$project$Route$Index$ubuntu,
                         $mdgriffith$elm_ui$Element$Font$size(80),
-                        $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor)
+                        $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
+                        $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$redColor)
                     ]), $mdgriffith$elm_ui$Element$text("\u0443\u0441\u043B\u0443\u0433\u0438 \u0434\u043B\u044F \u0432\u0430\u0448\u0435\u0433\u043E \u0431\u0438\u0437\u043D\u0435\u0441\u0430")),
+                    $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(60))
+                    ]), $mdgriffith$elm_ui$Element$none),
                     $mdgriffith$elm_ui$Element$row_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-                        $mdgriffith$elm_ui$Element$spaceEvenly
+                        $mdgriffith$elm_ui$Element$spaceEvenly,
+                        $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$darkColor)
                     ]), _List_fromArray([
                         $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
-                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350))
+                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350)),
+                            $mdgriffith$elm_ui$Element$spacing(30)
                         ]), _List_fromArray([
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$ubuntu,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(320)
+                                $mdgriffith$elm_ui$Element$Font$size(320),
+                                $mdgriffith$elm_ui$Element$Font$light
                             ]), $mdgriffith$elm_ui$Element$text("1.")),
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$raleway,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(24)
+                                $mdgriffith$elm_ui$Element$Font$size(24),
+                                $mdgriffith$elm_ui$Element$Font$semiBold
                             ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_Nil, _List_fromArray([
-                                $mdgriffith$elm_ui$Element$text("\u0414\u043B\u044F \u0442\u0435\u0445, \u043A\u0442\u043E \u0433\u043E\u0442\u043E\u0432 \u043A \u0440\u0430\u0434\u0438\u043A\u0430\u043B\u044C\u043D\u043E\u043C\u0443 \u0440\u043E\u0441\u0442\u0443 \u0438 \u0445\u043E\u0447\u0435\u0442 \u0432\u0438\u0434\u0435\u0442\u044C \u0441\u0432\u043E\u0439 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D \u043D\u0430  \u0432\u0435\u0440\u0448\u0438\u043D\u0435 \u0443\u0441\u043F\u0435\u0445\u0430.")
+                                $mdgriffith$elm_ui$Element$text("\u043F\u043E\u043B\u043D\u0430\u044F \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0430")
                             ])))
                         ])),
                         $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
-                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350))
+                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350)),
+                            $mdgriffith$elm_ui$Element$spacing(30)
                         ]), _List_fromArray([
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$ubuntu,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(320)
+                                $mdgriffith$elm_ui$Element$Font$size(320),
+                                $mdgriffith$elm_ui$Element$Font$light
                             ]), $mdgriffith$elm_ui$Element$text("2.")),
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$raleway,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(24)
+                                $mdgriffith$elm_ui$Element$Font$size(24),
+                                $mdgriffith$elm_ui$Element$Font$semiBold
                             ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_Nil, _List_fromArray([
-                                $mdgriffith$elm_ui$Element$text("\u0414\u043B\u044F \u0442\u0435\u0445, \u043A\u0442\u043E \u0445\u043E\u0447\u0435\u0442 \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0441\u0432\u043E\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u0438 \u0443\u043A\u0440\u0435\u043F\u0438\u0442\u044C \u043F\u043E\u0437\u0438\u0446\u0438\u0438 \u043D\u0430 \u0440\u044B\u043D\u043A\u0435.")
+                                $mdgriffith$elm_ui$Element$text("\u0443\u0434\u0430\u043B\u0435\u043D\u043D\u0430\u044F \u043A\u043E\u043C\u0430\u043D\u0434\u0430")
                             ])))
                         ])),
                         $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
-                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350))
+                            $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(350)),
+                            $mdgriffith$elm_ui$Element$spacing(30)
                         ]), _List_fromArray([
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$ubuntu,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(320)
+                                $mdgriffith$elm_ui$Element$Font$size(320),
+                                $mdgriffith$elm_ui$Element$Font$light
                             ]), $mdgriffith$elm_ui$Element$text("3.")),
                             $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                                 $author$project$Route$Index$raleway,
-                                $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$yellowColor),
-                                $mdgriffith$elm_ui$Element$Font$size(24)
+                                $mdgriffith$elm_ui$Element$Font$size(24),
+                                $mdgriffith$elm_ui$Element$Font$semiBold
                             ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_Nil, _List_fromArray([
-                                $mdgriffith$elm_ui$Element$text("\u0414\u043B\u044F \u0442\u0435\u0445, \u043A\u0442\u043E \u0445\u043E\u0447\u0435\u0442 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u0443\u044E \u043E\u0446\u0435\u043D\u043A\u0443 \u0438 \u0440\u0435\u043A\u043E\u043C\u0435\u043D\u0434\u0430\u0446\u0438\u0438 \u043F\u043E  \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u044E \u0441\u0432\u043E\u0435\u0433\u043E \u0431\u0438\u0437\u043D\u0435\u0441\u0430.")
+                                $mdgriffith$elm_ui$Element$text("\u0431\u044B\u0441\u0442\u0440\u044B\u0439 \u0441\u0442\u0430\u0440\u0442")
                             ])))
                         ]))
-                    ]))
+                    ])),
+                    $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(45))
+                    ]), $mdgriffith$elm_ui$Element$none)
                 ])))),
                 $mdgriffith$elm_ui$Element$link_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
                 ]), {
-                    ay: $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                    am: $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(196, 185, 151)),
                         $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
                         $mdgriffith$elm_ui$Element$paddingXY_fn(0, 146)
@@ -9067,7 +9075,7 @@
                     ]), _List_fromArray([
                         $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                             $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(1129))
-                        ]), { kq: "Viliche", aP: "/viliche.png" }),
+                        ]), { kq: "Viliche", a8: "/viliche.png" }),
                         $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                             $author$project$Route$Index$ubuntu,
                             $mdgriffith$elm_ui$Element$Font$size(32),
@@ -9087,27 +9095,33 @@
                         $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(605)),
                         $mdgriffith$elm_ui$Element$alignRight,
                         $mdgriffith$elm_ui$Element$moveDown(74)
-                    ]), { kq: "oil", aP: "/oil.png" })),
+                    ]), { kq: "oil", a8: "/oil.png" })),
                     $mdgriffith$elm_ui$Element$htmlAttribute($elm$html$Html$Attributes$stringProperty_fn($elm$html$Html$Attributes$id_a0, "history"))
                 ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_fromArray([
                     $author$project$Route$Index$ubuntu,
-                    $mdgriffith$elm_ui$Element$Font$size(240),
+                    $mdgriffith$elm_ui$Element$Font$size(280),
                     $mdgriffith$elm_ui$Element$paddingXY_fn(135, 95),
-                    $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$darkColor)
+                    $mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$rgb255_fn(53, 30, 30))
                 ]), _List_fromArray([
                     $mdgriffith$elm_ui$Element$text("\u0438\u0441\u0442\u043E\u0440\u0438\u044F \u0431\u0440\u0435\u043D\u0434\u0430")
                 ]))),
                 $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(210, 197, 178)),
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-                    $mdgriffith$elm_ui$Element$paddingXY_fn(135, 95),
-                    $mdgriffith$elm_ui$Element$Font$size(24)
+                    $mdgriffith$elm_ui$Element$paddingXY_fn(135, 0),
+                    $mdgriffith$elm_ui$Element$Font$size(24),
+                    $mdgriffith$elm_ui$Element$Font$medium
                 ]), $mdgriffith$elm_ui$Element$paragraph_fn(_List_fromArray([
                     $author$project$Route$Index$raleway,
                     $mdgriffith$elm_ui$Element$Font$color($author$project$Route$Index$darkColor)
                 ]), _List_fromArray([
                     $mdgriffith$elm_ui$Element$text("\u041C\u044B \u2014 Horeca Productions, \u043A\u043E\u043C\u0430\u043D\u0434\u0430, \u0440\u043E\u0436\u0434\u0435\u043D\u043D\u0430\u044F \u043E\u0431\u0449\u0435\u0439 \u043C\u0435\u0447\u0442\u043E\u0439. \u041C\u044B \u0432\u0435\u0440\u0438\u043B\u0438: \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D\u044B \u043C\u043E\u0433\u0443\u0442 \u043F\u043E\u043A\u043E\u0440\u044F\u0442\u044C \u0441\u0435\u0440\u0434\u0446\u0430 \u043D\u0435 \u0442\u043E\u043B\u044C\u043A\u043E \u043A\u0443\u0445\u043D\u0435\u0439, \u043D\u043E \u0430\u0442\u043C\u043E\u0441\u0444\u0435\u0440\u043E\u0439, \u0441\u0442\u0438\u043B\u0435\u043C, \u043E\u043D\u043B\u0430\u0439\u043D-\u043F\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u0438\u0435\u043C. \u042D\u043D\u0442\u0443\u0437\u0438\u0430\u0441\u0442\u044B, \u0432\u0435\u0440\u044F\u0449\u0438\u0435 \u0432 \u0441\u0438\u043B\u0443 \u043A\u0440\u0430\u0441\u0438\u0432\u043E\u0439 \u0438\u0434\u0435\u0438 \u0438 \u043F\u0440\u043E\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F, \u043C\u044B \u0441\u043E\u0437\u0434\u0430\u0451\u043C \u0432\u0434\u043E\u0445\u043D\u043E\u0432\u043B\u044F\u044E\u0449\u0438\u0435 \u0441\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0438, \u0437\u0430\u0432\u043E\u0440\u0430\u0436\u0438\u0432\u0430\u044E\u0449\u0438\u0439 \u0434\u0438\u0437\u0430\u0439\u043D. \u041D\u0430\u0448\u0430 \u0446\u0435\u043B\u044C \u2014 \u0441\u0434\u0435\u043B\u0430\u0442\u044C \u0432\u0430\u0448 \u0440\u0435\u0441\u0442\u043E\u0440\u0430\u043D \u0437\u0432\u0435\u0437\u0434\u043E\u0439.")
                 ]))),
+                $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                    $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(96)),
+                    $mdgriffith$elm_ui$Element$Background$color($mdgriffith$elm_ui$Element$rgb255_fn(210, 197, 178)),
+                    $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
+                ]), $mdgriffith$elm_ui$Element$none),
                 $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
                     $mdgriffith$elm_ui$Element$Background$image("/bg.png"),
@@ -9125,7 +9139,7 @@
                         $mdgriffith$elm_ui$Element$paddingXY_fn(105, 125)
                     ]), $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(100))
-                    ]), { kq: "team", aP: "/team.png" })),
+                    ]), { kq: "team", a8: "/team.png" })),
                     $mdgriffith$elm_ui$Element$row_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$paddingEach({ ey: 95, e5: 115, fu: 115, fQ: 0 }),
                         $mdgriffith$elm_ui$Element$spaceEvenly,
@@ -9137,7 +9151,7 @@
                             $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                                 $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240)),
                                 $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(160))
-                            ]), { kq: "Alim", aP: "/alim.jpg" }),
+                            ]), { kq: "Alim", a8: "/alim.jpg" }),
                             $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
                                 $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(260)),
                                 $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240))
@@ -9162,7 +9176,7 @@
                             $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                                 $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240)),
                                 $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(160))
-                            ]), { kq: "Alim", aP: "/ilia.jpg" }),
+                            ]), { kq: "Alim", a8: "/ilia.jpg" }),
                             $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
                                 $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(260)),
                                 $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240))
@@ -9210,7 +9224,7 @@
                                     $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                                         $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240)),
                                         $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(160))
-                                    ]), { kq: "Alim", aP: "/yasha.jpg" }),
+                                    ]), { kq: "Alim", a8: "/yasha.jpg" }),
                                     $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
                                         $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$px(260)),
                                         $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(240))
@@ -9240,41 +9254,47 @@
                 ]), $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$paddingXY_fn(135, 95),
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
-                    $mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$rgb255_fn(233, 231, 218))
+                    $mdgriffith$elm_ui$Element$Font$color($mdgriffith$elm_ui$Element$rgb255_fn(205, 197, 178))
                 ]), $mdgriffith$elm_ui$Element$column_fn(_List_fromArray([
-                    $mdgriffith$elm_ui$Element$spacing(120),
                     $mdgriffith$elm_ui$Element$htmlAttribute(_VirtualDom_style_fn("backdrop-filter", "blur(40px)")),
-                    $mdgriffith$elm_ui$Element$paddingXY_fn(60, 60),
+                    $mdgriffith$elm_ui$Element$paddingXY_fn(125, 0),
                     $mdgriffith$elm_ui$Element$Border$rounded(30),
                     $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill)
                 ]), _List_fromArray([
+                    $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(135))
+                    ]), $mdgriffith$elm_ui$Element$none),
                     $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$Font$size(280),
                         $author$project$Route$Index$ubuntu
                     ]), $mdgriffith$elm_ui$Element$text("\u0431\u043B\u043E\u0433")),
                     $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
-                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(100))
+                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(120))
                     ]), $mdgriffith$elm_ui$Element$none),
                     $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$alignRight,
                         $author$project$Route$Index$ubuntu,
-                        $mdgriffith$elm_ui$Element$Font$size(32)
+                        $mdgriffith$elm_ui$Element$Font$size(32),
+                        $mdgriffith$elm_ui$Element$moveLeft(55)
                     ]), $mdgriffith$elm_ui$Element$row_fn(_List_Nil, _List_fromArray([
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$text("\u0434\u0437\u0435\u043D"),
+                            am: $mdgriffith$elm_ui$Element$text("\u0434\u0437\u0435\u043D"),
                             mM: "https://dzen.ru/id/67f1ed371047046a46c0e665"
                         }),
                         $mdgriffith$elm_ui$Element$text("/"),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$text("telegram"),
+                            am: $mdgriffith$elm_ui$Element$text("telegram"),
                             mM: "https://t.me/horeca_productions"
                         }),
                         $mdgriffith$elm_ui$Element$text("/"),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$text("\u0445\u0430\u0431\u0440"),
+                            am: $mdgriffith$elm_ui$Element$text("\u0445\u0430\u0431\u0440"),
                             mM: "https://habr.com/ru/users/horeca_productions/"
                         })
-                    ])))
+                    ]))),
+                    $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
+                        $mdgriffith$elm_ui$Element$height($mdgriffith$elm_ui$Element$px(190))
+                    ]), $mdgriffith$elm_ui$Element$none)
                 ])))),
                 $mdgriffith$elm_ui$Element$el_fn(_List_fromArray([
                     $mdgriffith$elm_ui$Element$Background$color($author$project$Route$Index$darkColor),
@@ -9287,7 +9307,7 @@
                 ]), _List_fromArray([
                     $mdgriffith$elm_ui$Element$image_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$paddingEach({ ey: 0, e5: 0, fu: 90, fQ: 0 })
-                    ]), { kq: "logo", aP: "/logo.svg" }),
+                    ]), { kq: "logo", a8: "/logo.svg" }),
                     $mdgriffith$elm_ui$Element$row_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$centerX,
                         $mdgriffith$elm_ui$Element$width($mdgriffith$elm_ui$Element$fill),
@@ -9295,28 +9315,33 @@
                         $mdgriffith$elm_ui$Element$spacing(120)
                     ]), _List_fromArray([
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0443\u0441\u043B\u0443\u0433\u0438")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0443\u0441\u043B\u0443\u0433\u0438")),
                             mM: "#services"
                         }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0438\u0441\u0442\u043E\u0440\u0438\u044F")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0438\u0441\u0442\u043E\u0440\u0438\u044F")),
                             mM: "#history"
                         }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u043A\u043E\u043C\u0430\u043D\u0434\u0430")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u043A\u043E\u043C\u0430\u043D\u0434\u0430")),
                             mM: "#team"
                         }),
                         $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
-                            ay: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0431\u043B\u043E\u0433")),
+                            am: $mdgriffith$elm_ui$Element$el_fn($author$project$Route$Index$headerFont, $mdgriffith$elm_ui$Element$text("\u0431\u043B\u043E\u0433")),
                             mM: "#blog"
                         })
                     ])),
                     $mdgriffith$elm_ui$Element$row_fn(_List_fromArray([
                         $mdgriffith$elm_ui$Element$spacing(28)
                     ]), _List_fromArray([
-                        $mdgriffith$elm_ui$Element$image_fn(_List_Nil, { kq: "TikTok", aP: "/tiktok.svg" }),
-                        $mdgriffith$elm_ui$Element$image_fn(_List_Nil, { kq: "Instagram", aP: "/inst.svg" }),
-                        $mdgriffith$elm_ui$Element$image_fn(_List_Nil, { kq: "Telegram", aP: "/tg.svg" })
+                        $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
+                            am: $mdgriffith$elm_ui$Element$image_fn(_List_Nil, { kq: "Instagram", a8: "/inst.svg" }),
+                            mM: "https://www.instagram.com/horeca_productions_"
+                        }),
+                        $mdgriffith$elm_ui$Element$link_fn(_List_Nil, {
+                            am: $mdgriffith$elm_ui$Element$image_fn(_List_Nil, { kq: "Telegram", a8: "/tg.svg" }),
+                            mM: "https://t.me/horeca_productions"
+                        })
                     ]))
                 ])))
             ])),
@@ -9369,7 +9394,7 @@
     var $elm$url$Url$Http = 0;
     var $elm$url$Url$Https = 1;
     var $elm$url$Url$Url_fn = function (protocol, host, port_, path, query, fragment) {
-        return { aV: fragment, eY: host, F: path, fe: port_, fi: protocol, a8: query };
+        return { aU: fragment, eY: host, F: path, fe: port_, fi: protocol, a7: query };
     }, $elm$url$Url$Url = F6($elm$url$Url$Url_fn);
     var $elm$core$String$contains = _String_contains;
     var $elm$core$String$indexes = _String_indexes;
@@ -9627,10 +9652,10 @@
     var $dillonkearns$elm_pages$TerminalText$Style_fn = function (a, b) {
         return { $: 0, a: a, b: b };
     }, $dillonkearns$elm_pages$TerminalText$Style = F2($dillonkearns$elm_pages$TerminalText$Style_fn);
-    var $dillonkearns$elm_pages$TerminalText$blankStyle = { cJ: false, av: $elm$core$Maybe$Nothing, dG: false };
+    var $dillonkearns$elm_pages$TerminalText$blankStyle = { cJ: false, aw: $elm$core$Maybe$Nothing, dG: false };
     var $dillonkearns$elm_pages$TerminalText$cyan = function (inner) {
         return $dillonkearns$elm_pages$TerminalText$Style_fn(_Utils_update($dillonkearns$elm_pages$TerminalText$blankStyle, {
-            av: $elm$core$Maybe$Just($wolfadex$elm_ansi$Ansi$Color$Cyan)
+            aw: $elm$core$Maybe$Just($wolfadex$elm_ansi$Ansi$Color$Cyan)
         }), inner);
     };
     var $dillonkearns$elm_pages$TerminalText$text = function (value) {
@@ -9671,7 +9696,7 @@
         var ansiStyle = _v0.a;
         var innerText = _v0.b;
         return $elm$core$String$concat(_List_fromArray([
-            $dillonkearns$elm_pages$TerminalText$colorToString($elm$core$Maybe$withDefault_fn($wolfadex$elm_ansi$Ansi$Color$White, ansiStyle.av)),
+            $dillonkearns$elm_pages$TerminalText$colorToString($elm$core$Maybe$withDefault_fn($wolfadex$elm_ansi$Ansi$Color$White, ansiStyle.aw)),
             innerText,
             $dillonkearns$elm_pages$TerminalText$resetColors
         ]));
@@ -10579,14 +10604,14 @@
                 var _v2 = A5(config.gV, userFlags, sharedData, pageData, actionData, $elm$core$Maybe$Just({
                     bT: config.mN(url),
                     ef: $elm$core$Maybe$Just({
-                        aV: url.aV,
+                        aU: url.aU,
                         eY: url.eY,
                         F: pagePath,
                         fe: url.fe,
                         fi: url.fi,
-                        a8: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, url.a8))
+                        a7: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, url.a7))
                     }),
-                    F: { aV: url.aV, F: pagePath, a8: url.a8 }
+                    F: { aU: url.aU, F: pagePath, a7: url.a7 }
                 }));
                 var userModel = _v2.a;
                 var userCmd = _v2.b;
@@ -10596,7 +10621,7 @@
                     cc: url.F,
                     G: $elm$core$Dict$empty,
                     k8: key,
-                    as: 0,
+                    at: 0,
                     bp: $elm$core$Maybe$Nothing,
                     o: $elm$core$Result$Ok({ bC: actionData, o: pageData, fz: sharedData, W: userModel }),
                     hj: $elm$core$Dict$empty,
@@ -10617,7 +10642,7 @@
                     cc: url.F,
                     G: $elm$core$Dict$empty,
                     k8: key,
-                    as: 0,
+                    at: 0,
                     bp: $elm$core$Maybe$Just(info),
                     o: $elm$core$Result$Err("Not found"),
                     hj: $elm$core$Dict$empty,
@@ -10636,7 +10661,7 @@
                 cc: url.F,
                 G: $elm$core$Dict$empty,
                 k8: key,
-                as: 0,
+                at: 0,
                 bp: $elm$core$Maybe$Nothing,
                 o: $elm$core$Result$Err($dillonkearns$elm_pages$BuildError$errorToString(error)),
                 hj: $elm$core$Dict$empty,
@@ -10934,7 +10959,7 @@
                 else {
                     return $elm$core$Maybe$withDefault_fn("", $elm$core$Maybe$map_fn(function (encoded) {
                         return "?" + encoded;
-                    }, url.a8));
+                    }, url.a7));
                 }
             }()))
         });
@@ -10999,7 +11024,7 @@
             $elm$core$Task$perform_fn($elm$core$Basics$identity, $elm$core$Task$map_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherStarted, fetcherKey, transitionId, formData), $elm$time$Time$now)),
             $elm$http$Http$request({
                 gg: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
-                kz: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, false, fetcherKey, model.as), function (bytes) {
+                kz: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, false, fetcherKey, model.at), function (bytes) {
                     switch (bytes.$) {
                         case 4:
                             var bytesBody = bytes.b;
@@ -11049,7 +11074,7 @@
             $elm$core$Task$perform_fn($elm$core$Basics$identity, $elm$core$Task$map_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherStarted, fetcherKey, transitionId, formData), $elm$time$Time$now)),
             $elm$http$Http$request({
                 gg: _Http_pair_fn("application/x-www-form-urlencoded", encodedBody),
-                kz: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, fromPageReload, fetcherKey, model.as), function (bytes) {
+                kz: $elm$http$Http$expectBytesResponse_fn(A3($dillonkearns$elm_pages$Pages$Internal$Platform$FetcherComplete, fromPageReload, fetcherKey, model.at), function (bytes) {
                     switch (bytes.$) {
                         case 4:
                             var bytesBody = bytes.b;
@@ -11275,7 +11300,7 @@
                 return "https://";
             }
         }();
-        return $elm$url$Url$addPrefixed_fn("#", url.aV, $elm$url$Url$addPrefixed_fn("?", url.a8, _Utils_ap($elm$url$Url$addPort_fn(url.fe, _Utils_ap(http, url.eY)), url.F)));
+        return $elm$url$Url$addPrefixed_fn("#", url.aU, $elm$url$Url$addPrefixed_fn("?", url.a7, _Utils_ap($elm$url$Url$addPort_fn(url.fe, _Utils_ap(http, url.eY)), url.F)));
     };
     var $dillonkearns$elm_pages$UrlPath$toSegments = function (path) {
         return $elm$core$List$filter_fn($elm$core$Basics$neq(""), $elm$core$String$split_fn("/", path));
@@ -11314,13 +11339,13 @@
             var previousPageData = _v1.a;
             var onActionMsg = $elm$core$Maybe$andThen_fn(config.lz, newActionData);
             var _v2 = A8(config.em, model.hj, $dillonkearns$elm_pages$Pages$Internal$Platform$toFetcherState(model.G), $elm$core$Maybe$map_fn($elm$core$Tuple$second, model.V), newSharedData, newPageData, model.k8, config.i4({
-                aV: urlWithoutRedirectResolution.aV,
+                aU: urlWithoutRedirectResolution.aU,
                 eY: model.mM.eY,
                 bT: config.mN(urlWithoutRedirectResolution),
                 F: $dillonkearns$elm_pages$Pages$Internal$Platform$urlPathToPath(urlWithoutRedirectResolution),
                 fe: model.mM.fe,
                 fi: model.mM.fi,
-                a8: urlWithoutRedirectResolution.a8
+                a7: urlWithoutRedirectResolution.a7
             }), previousPageData.W);
             var userModel = _v2.a;
             var updatedPageData = { bC: newActionData, o: newPageData, fz: newSharedData, W: userModel };
@@ -11449,8 +11474,8 @@
             }
         }();
         return _Utils_Tuple2(_Utils_update(model, {
-            as: model.as + 1,
-            V: $elm$core$Maybe$Just(_Utils_Tuple2(model.as, function () {
+            at: model.at + 1,
+            V: $elm$core$Maybe$Just(_Utils_Tuple2(model.at, function () {
                 var _v1 = model.V;
                 _v1$2: while (true) {
                     if (!_v1.$) {
@@ -11475,7 +11500,7 @@
                 return $dillonkearns$elm_pages$Pages$Navigation$Loading_fn($dillonkearns$elm_pages$UrlPath$fromString(urlToGet.F), 1);
             }()))
         }), $dillonkearns$elm_pages$Pages$Internal$Platform$Batch(_List_fromArray([
-            $dillonkearns$elm_pages$Pages$Internal$Platform$FetchPageData_fn(model.as, $elm$core$Maybe$Nothing, urlToGet, toMsg),
+            $dillonkearns$elm_pages$Pages$Internal$Platform$FetchPageData_fn(model.at, $elm$core$Maybe$Nothing, urlToGet, toMsg),
             cancelIfStale,
             effect
         ])));
@@ -11572,7 +11597,7 @@
                     var urlRequest = appMsg.a;
                     if (!urlRequest.$) {
                         var url = urlRequest.a;
-                        var navigatingToSamePage = _Utils_eq(url.F, model.mM.F) && (_Utils_eq(url.a8, model.mM.a8) && (!_Utils_eq(url.aV, $elm$core$Maybe$Nothing)));
+                        var navigatingToSamePage = _Utils_eq(url.F, model.mM.F) && (_Utils_eq(url.a7, model.mM.a7) && (!_Utils_eq(url.aU, $elm$core$Maybe$Nothing)));
                         return navigatingToSamePage ? _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$BrowserLoadUrl($elm$url$Url$toString(url))) : _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$BrowserPushUrl($elm$url$Url$toString(url)));
                     }
                     else {
@@ -11590,7 +11615,7 @@
                         return $dillonkearns$elm_pages$Pages$Internal$Platform$loadDataAndUpdateUrl_fn(_Utils_Tuple3(newPageData, newSharedData, newActionData), $elm$core$Maybe$Nothing, url, url, false, config, model);
                     }
                     else {
-                        return (_Utils_eq(model.mM.F, url.F) && _Utils_eq(model.mM.a8, url.a8)) ? (_Utils_eq(url.aV, $elm$core$Maybe$Nothing) ? _Utils_Tuple2(_Utils_update(model, { mM: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop) : _Utils_Tuple2(_Utils_update(model, { mM: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect)) : $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn(url, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, true, url, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
+                        return (_Utils_eq(model.mM.F, url.F) && _Utils_eq(model.mM.a7, url.a7)) ? (_Utils_eq(url.aU, $elm$core$Maybe$Nothing) ? _Utils_Tuple2(_Utils_update(model, { mM: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$ScrollToTop) : _Utils_Tuple2(_Utils_update(model, { mM: url }), $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect)) : $dillonkearns$elm_pages$Pages$Internal$Platform$startNewGetLoad_fn(url, A3($dillonkearns$elm_pages$Pages$Internal$Platform$UpdateCacheAndUrlNew, true, url, $elm$core$Maybe$Nothing), _Utils_Tuple2(model, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect));
                     }
                 case 5:
                     var fetcherKey = appMsg.b;
@@ -11670,7 +11695,7 @@
                                     else {
                                         return $elm$core$Basics$identity;
                                     }
-                                }()(_Utils_Tuple2(_Utils_update(model, { as: model.as + 1 }), $dillonkearns$elm_pages$Pages$Internal$Platform$SubmitFetcher_fn(fields.gT, model.as, payload))) : function () {
+                                }()(_Utils_Tuple2(_Utils_update(model, { at: model.at + 1 }), $dillonkearns$elm_pages$Pages$Internal$Platform$SubmitFetcher_fn(fields.gT, model.at, payload))) : function () {
                                     var _v14 = fields.e7;
                                     if (!_v14.$) {
                                         var justUserMsg = _v14.a;
@@ -11761,13 +11786,13 @@
                             var newActionData = _v22.c;
                             var onActionMsg = $elm$core$Maybe$andThen_fn(config.lz, newActionData);
                             var _v24 = stayingOnSamePath ? _Utils_Tuple2(previousPageData.W, $dillonkearns$elm_pages$Pages$Internal$Platform$NoEffect) : $elm$core$Tuple$mapSecond_fn($dillonkearns$elm_pages$Pages$Internal$Platform$UserCmd, A8(config.em, model.hj, $dillonkearns$elm_pages$Pages$Internal$Platform$toFetcherState(model.G), $elm$core$Maybe$map_fn($elm$core$Tuple$second, model.V), newSharedData, newPageData, model.k8, config.i4({
-                                aV: urlWithoutRedirectResolution.aV,
+                                aU: urlWithoutRedirectResolution.aU,
                                 eY: model.mM.eY,
                                 bT: config.mN(urlWithoutRedirectResolution),
                                 F: $dillonkearns$elm_pages$Pages$Internal$Platform$urlPathToPath(urlWithoutRedirectResolution),
                                 fe: model.mM.fe,
                                 fi: model.mM.fi,
-                                a8: urlWithoutRedirectResolution.a8
+                                a7: urlWithoutRedirectResolution.a7
                             }), previousPageData.W));
                             var userModel = _v24.a;
                             var userEffect = _v24.b;
@@ -11852,14 +11877,14 @@
                             var _v32 = A5(config.gV, userFlags, sharedData, pageData, actionData, $elm$core$Maybe$Just({
                                 bT: config.mN(model.mM),
                                 ef: $elm$core$Maybe$Just({
-                                    aV: model.mM.aV,
+                                    aU: model.mM.aU,
                                     eY: model.mM.eY,
                                     F: pagePath,
                                     fe: model.mM.fe,
                                     fi: model.mM.fi,
-                                    a8: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, model.mM.a8))
+                                    a7: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$QueryParams$fromString, model.mM.a7))
                                 }),
-                                F: { aV: model.mM.aV, F: pagePath, a8: model.mM.a8 }
+                                F: { aU: model.mM.aU, F: pagePath, a7: model.mM.a7 }
                             }));
                             var userModel = _v32.a;
                             var userCmd = _v32.b;
@@ -12766,7 +12791,7 @@
         gh: $elm$core$Maybe$Nothing,
         hC: $elm$core$Maybe$Just({
             $8: 0,
-            av: $mdgriffith$elm_ui$Internal$Model$Rgba_fn(155 / 255, 203 / 255, 1, 1),
+            aw: $mdgriffith$elm_ui$Internal$Model$Rgba_fn(155 / 255, 203 / 255, 1, 1),
             fa: _Utils_Tuple2(0, 0),
             mf: 3
         })
@@ -13190,14 +13215,14 @@
                 var _v4 = $author$project$Main$init_fn($elm$core$Maybe$Just(model.M), $dillonkearns$elm_pages$Pages$Flags$PreRenderFlags, sharedData, pageData, $elm$core$Maybe$Nothing, $elm$core$Maybe$Just({
                     bT: record.bT,
                     ef: $elm$core$Maybe$Just({
-                        aV: record.aV,
+                        aU: record.aU,
                         eY: record.eY,
                         F: record.F,
                         fe: record.fe,
                         fi: record.fi,
-                        a8: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Pages$PageUrl$parseQueryParams, record.a8))
+                        a7: $elm$core$Maybe$withDefault_fn($elm$core$Dict$empty, $elm$core$Maybe$map_fn($dillonkearns$elm_pages$Pages$PageUrl$parseQueryParams, record.a7))
                     }),
-                    F: { aV: record.aV, F: record.F, a8: record.a8 }
+                    F: { aU: record.aU, F: record.F, a7: record.a7 }
                 }));
                 var updatedModel = _v4.a;
                 var cmd = _v4.b;
@@ -13207,7 +13232,7 @@
                 }
                 else {
                     var thingy = _v5.a;
-                    var _v6 = A2($author$project$Shared$template.em, thingy({ aV: record.aV, F: record.F, a8: record.a8 }), model.M);
+                    var _v6 = A2($author$project$Shared$template.em, thingy({ aU: record.aU, F: record.F, a7: record.a7 }), model.M);
                     var updatedGlobalModel = _v6.a;
                     var globalCmd = _v6.b;
                     return _Utils_Tuple2(_Utils_update(updatedModel, { M: updatedGlobalModel }), $author$project$Effect$batch(_List_fromArray([
